@@ -1,0 +1,30 @@
+{
+  "name": "cordlr-request",
+  "description": "Cordlr request plugin",
+  "version": "0.1.0",
+  "homepage": "https://github.com/seanc/cordlr-request",
+  "author": "Sean Wilson (https://imsean.me)",
+  "repository": "seanc/cordlr-request",
+  "bugs": {
+    "url": "https://github.com/seanc/cordlr-request/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "cordlr"
+  ],
+  "dependencies": {
+    "deep-find": "^0.0.0-alpha",
+    "pixie": "^0.2.2",
+    "request": "^2.75.0",
+    "valid-url": "^1.0.9"
+  }
+}
