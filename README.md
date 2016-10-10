@@ -30,7 +30,7 @@ request <url> [...properties]
 ```
 
 You can access properties by using dot notation to access object properties,
-all properties are the ones provided by the (request)[https://www.npmjs.com/package/request] package.
+all properties are the ones provided by the [request](https://www.npmjs.com/package/request) package.
 
 For example,
 
