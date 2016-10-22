@@ -9,16 +9,16 @@ function request(bot, config) {
   const listFormat = config.listFormat || '\t{{name}}: {{val}}';
   const error = config.error || 'An error occured while trying to connect to {{url}}';
 
-  return function run(message, args) {
+  return function run(message, args, flags) {
     if (!args.length) return bot.reply('Invalid arguments provided');
 
-    const url = args[0];
-    if (!valid(url)) return bot.reply('Invalid url provided');
+    if (args[0]) flags.url = args[0]
+    if (!valid(flags.url)) return bot.reply('Invalid url provided');
 
-    req(url, (err, res, body) => {
+    req(flags, (err, res, body) => {
       if (err) {
         console.log(err);
-        return bot.reply(pixie.render(error, {url}))
+        return bot.reply(pixie.render(error, flags))
       }
 
       const reply = [];
@@ -45,7 +45,7 @@ function request(bot, config) {
       }
 
       const render = pixie.render(format, {
-        url,
+        flags,
         list: reply.join('\n')
       });
 
