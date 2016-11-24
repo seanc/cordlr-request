@@ -10,15 +10,15 @@ function request(bot, config) {
   const error = config.error || 'An error occured while trying to connect to {{url}}';
 
   return function run(message, args) {
-    if (!args.length) return bot.reply('Invalid arguments provided');
+    if (!args.length) return message.reply('Invalid arguments provided');
 
     const url = args[0];
-    if (!valid(url)) return bot.reply('Invalid url provided');
+    if (!valid(url)) return message.reply('Invalid url provided');
 
     req(url, (err, res, body) => {
       if (err) {
         console.log(err);
-        return bot.reply(pixie.render(error, {url}))
+        return message.channel.reply(pixie.render(error, {url}))
       }
 
       const reply = [];
